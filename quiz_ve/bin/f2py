@@ -1,4 +1,4 @@
-#!/Users/nathangalindo/Documents/Programming/Academic/processStudents/process-students-venv/bin/python3.12
+#!/Users/nathangalindo/Documents/Programming/Academic/processStudents/quiz_ve/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
