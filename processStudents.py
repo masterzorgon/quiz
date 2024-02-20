@@ -32,8 +32,38 @@ import csv
 
 
 # create a file object to open the file in read mode
+students_file_path = "/Users/nathangalindo/Documents/Programming/Academic/processStudents/students.csv"
+processed_file_path = "/Users/nathangalindo/Documents/Programming/Academic/processStudents/processedStudents.csv"
 
+low_performing_students = {}
 
+with open(processed_file_path, "a") as processed_file:
+
+    with open(students_file_path, "r") as students_file:
+        reader_file = csv.reader(students_file)
+
+        next(students_file)
+
+        for student in reader_file:
+            stud_id = student[0]
+            pin = student[1]
+            firstname = student[2]
+            lastname = student[3]
+            city = student[4]
+            state = student[5]
+            major = student[6]
+            classification = student[7]
+            gpa = student[8]
+
+            if float(gpa) < 3.0:
+                processed_file.write(f"\n{stud_id},{firstname},{lastname},{major},{classification},{gpa}")
+                low_performing_students[f"{firstname.capitalize()} {lastname.capitalize()}"] = float(gpa)
+
+print(low_performing_students)
+print(low_performing_students["Luke Brazzi"])
+
+students_file.close()
+processed_file.close()
 
 # create a csv object from the file object
 
